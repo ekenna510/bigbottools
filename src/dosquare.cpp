@@ -287,31 +287,31 @@ void gridClean(){
         pose.x=1;
         pose.y=1;
         pose.theta=0;
-        moveGoal(pose, 0.01,02);
+        moveGoal(pose, 0.01,0.2);
         loop.sleep();
         setDesiredOrientation(0);
         loop.sleep();
 
-        move(2, 9, true);
+        move(.3, 9, true);
         loop.sleep();
         rotate(degrees2radians(10), degrees2radians(90), false);
         loop.sleep();
-        move(2, 9, true);
+        move(.3, 9, true);
 
 
         rotate(degrees2radians(10), degrees2radians(90), false);
         loop.sleep();
-        move(2, 1, true);
+        move(.3, 1, true);
         rotate(degrees2radians(10), degrees2radians(90), false);
         loop.sleep();
-        move(2, 9, true);
+        move(.3, 9, true);
 
         rotate(degrees2radians(30), degrees2radians(90), true);
         loop.sleep();
-        move(2, 1, true);
+        move(.3, 1, true);
         rotate(degrees2radians(30), degrees2radians(90), true);
         loop.sleep();
-        move(2, 9, true);
+        move(.3, 9, true);
 
 
         double distance = getDistance(bot_pose.x, bot_pose.y, x_max, y_max);
@@ -363,7 +363,9 @@ int main(int argc, char **argv)
 
   rclcpp::init(argc, argv); 
   auto node = std::make_shared<dosquare>();
-        
+  node.gridClean();
+  //rclcpp::spin(node);
+  //rclcpp::shutdown();       
 
 
   //ros::Rate r(10);
